@@ -1,2 +1,12 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import { Button } from '$lib/components/ui/button';
+</script>
+
+<div class="flex flex-col gap-8 items-center justify-center h-dvh">
+	<h1 class="text-3xl font-semibold text-center">Welcome to SvelteKit</h1>
+
+	<div class="flex gap-4 items-center">
+		<Button>Login</Button>
+		<Button variant="secondary">Register</Button>
+	</div>
+</div>
