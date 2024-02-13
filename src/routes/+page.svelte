@@ -13,5 +13,9 @@
 		<a href="/register">
 			<Button variant="secondary">Register</Button>
 		</a>
+
+		<a href="/dashboard">
+			<Button variant="secondary">Dashboard</Button>
+		</a>
 	</div>
 </div>
