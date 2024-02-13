@@ -9,3 +9,14 @@ export const users = pgTable('users', {
 	createdAt: timestamp('createdAt').defaultNow().notNull(),
 	updatedAt: timestamp('updatedAt').defaultNow().notNull()
 });
+
+export const sessions = pgTable('sessions', {
+	id: text('id').primaryKey(),
+	userId: text('user_id')
+		.notNull()
+		.references(() => users.id),
+	expiresAt: timestamp('expires_at', {
+		withTimezone: true,
+		mode: 'date'
+	}).notNull()
+});
