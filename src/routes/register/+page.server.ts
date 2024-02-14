@@ -1,3 +1,4 @@
+import { Argon2id } from 'oslo/password';
 import type { Actions } from './$types';
 import { redirect, fail } from '@sveltejs/kit';
 import { db } from '$lib/server/db';
@@ -8,10 +9,12 @@ import { generateId } from 'lucia';
 export const actions = {
 	register: async (event) => {
 		const userId = generateId(15);
+		const hashedPassword = await new Argon2id().hash('password');
 		try {
 			await db.insert(users).values({
 				id: userId,
 				email: 'chetankharel7@gmail.com',
+				password: hashedPassword,
 				clerkUserId: userId
 			});
 			const session = await lucia.createSession(userId, {});
