@@ -1,20 +1,27 @@
 {
-  "version": "5",
-  "dialect": "pg",
-  "entries": [
-    {
-      "idx": 0,
-      "version": "5",
-      "when": 1707829770814,
-      "tag": "0000_wakeful_triton",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1707843085912,
-      "tag": "0001_faithful_praxagora",
-      "breakpoints": true
-    }
-  ]
+	"version": "5",
+	"dialect": "pg",
+	"entries": [
+		{
+			"idx": 0,
+			"version": "5",
+			"when": 1707829770814,
+			"tag": "0000_wakeful_triton",
+			"breakpoints": true
+		},
+		{
+			"idx": 1,
+			"version": "5",
+			"when": 1707843085912,
+			"tag": "0001_faithful_praxagora",
+			"breakpoints": true
+		},
+		{
+			"idx": 2,
+			"version": "5",
+			"when": 1707917150631,
+			"tag": "0002_colorful_anthem",
+			"breakpoints": true
+		}
+	]
 }
