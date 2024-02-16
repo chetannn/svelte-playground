@@ -1,11 +1,15 @@
 import { redirect, fail } from '@sveltejs/kit';
 import { lucia } from '$lib/server/auth';
 import type { PageServerLoad, Actions } from './$types';
+import { db } from '$lib/server/db';
 
 export const load: PageServerLoad = async (event) => {
 	if (!event.locals.user) redirect(302, '/login');
+
+	const users = await db.query.users.findMany();
 	return {
-		user: event.locals.user
+		user: event.locals.user,
+		users
 	};
 };
 
