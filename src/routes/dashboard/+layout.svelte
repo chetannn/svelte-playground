@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
 	import { Button } from '$lib/components/ui/button';
+	import { goto } from '$app/navigation';
+	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
+	import * as Avatar from '$lib/components/ui/avatar';
 	import { cn } from '$lib/utils';
 	import type { PageData } from './$types';
-
 	export let data: PageData;
 </script>
 
@@ -101,11 +102,46 @@
 		<div class="h-full flex flex-col">
 			<div class="px-3 border-b">
 				<div class="flex items-center justify-end py-4 gap-3">
-					<p>Hello, {data.user.email}</p>
+					<DropdownMenu.Root>
+						<DropdownMenu.Trigger asChild let:builder>
+							<Button builders={[builder]} variant="ghost" class="h-8 w-8 p-0 rounded-full">
+								<Avatar.Root class="h-8 w-8">
+									<Avatar.Image src="https://github.com/chetannn.png" alt="chetannn" />
+									<Avatar.Fallback>CK</Avatar.Fallback>
+								</Avatar.Root>
+							</Button>
+						</DropdownMenu.Trigger>
+						<DropdownMenu.Content class="w-56">
+							<DropdownMenu.Label class="font-normal">
+								<div class="flex flex-col space-y-1">
+									<p class="text-sm font-medium leading-none">
+										{data.user.email}
+									</p>
+								</div>
+							</DropdownMenu.Label>
+							<DropdownMenu.Separator />
+							<DropdownMenu.Group>
+								<DropdownMenu.Item on:click={() => goto('/profile')}>
+									Profile
+									<DropdownMenu.Shortcut>⇧⌘P</DropdownMenu.Shortcut>
+								</DropdownMenu.Item>
+								<DropdownMenu.Item on:click={() => goto('/login')}>
+									Billing
+									<DropdownMenu.Shortcut>⌘B</DropdownMenu.Shortcut>
+								</DropdownMenu.Item>
+								<DropdownMenu.Item on:click={() => goto('/settings')}>
+									Settings
+									<DropdownMenu.Shortcut>⌘S</DropdownMenu.Shortcut>
+								</DropdownMenu.Item>
+							</DropdownMenu.Group>
+							<DropdownMenu.Separator />
 
-					<form method="post" action="/dashboard" use:enhance>
-						<Button type="submit" size="sm">Logout</Button>
-					</form>
+							<DropdownMenu.Item on:click={() => goto('/login')}>
+								Log out
+								<DropdownMenu.Shortcut>⇧⌘Q</DropdownMenu.Shortcut>
+							</DropdownMenu.Item>
+						</DropdownMenu.Content>
+					</DropdownMenu.Root>
 				</div>
 			</div>
 			<div class="px-6 mt-3">
