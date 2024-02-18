@@ -103,7 +103,7 @@
 					</DropdownMenu.Root>
 				</div>
 			</div>
-			<div class="px-6 mt-3">
+			<div class="px-6 mt-3 container mx-auto">
 				<slot />
 			</div>
 		</div>
