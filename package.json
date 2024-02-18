@@ -12,7 +12,8 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"db:generate": "drizzle-kit generate:pg",
-		"db:migrate": "tsx src/lib/server/migrate.ts"
+		"db:migrate": "tsx src/lib/server/migrate.ts",
+		"db:seed": "tsx src/lib/server/seed.ts"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
