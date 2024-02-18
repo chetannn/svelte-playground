@@ -1,11 +1,12 @@
 <script lang="ts">
+	import { LayoutDashboard, Settings, MessageCircleMore, Users } from 'lucide-svelte';
 	import { Button } from '$lib/components/ui/button';
+	import { Search } from '$lib/components/dashboard/search';
 	import { goto } from '$app/navigation';
 	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import * as Avatar from '$lib/components/ui/avatar';
-	import { LayoutDashboard, Settings, MessageCircleMore, Users } from 'lucide-svelte';
 
 	import { cn } from '$lib/utils';
 	import type { LayoutData } from './$types';
@@ -62,7 +63,8 @@
 	<main class="h-[100vh] lg:pl-72">
 		<div class="h-full flex flex-col">
 			<div class="px-3 border-b">
-				<div class="flex items-center justify-end py-4 gap-3">
+				<div class="py-3 flex items-center justify-end space-x-6">
+					<Search />
 					<DropdownMenu.Root>
 						<DropdownMenu.Trigger asChild let:builder>
 							<Button builders={[builder]} variant="ghost" class="h-8 w-8 p-0 rounded-full">
